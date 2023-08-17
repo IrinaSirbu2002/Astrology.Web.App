@@ -36,10 +36,10 @@ def lookup(start_date):
     # Connect to the SQLite database
     conn = psycopg2.connect(
         dbname="neo_data.db",
-        user="IrinaSirbu2002",
+        user="irinasirbu0326@gmail.com",
         password="Irinuca-234",
         host="thawing-sands-07058-b7e6173d598d.herokuapp.com",
-        port="5432"
+        port="41061"
     )
     cursor = conn.cursor()
 
