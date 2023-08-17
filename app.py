@@ -1,10 +1,9 @@
 #from request import lookup, add_days
 import os
 
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request
 from flask_session import Session
-from tempfile import mkdtemp
-import sqlite3
+#from tempfile import mkdtemp
 import csv
 
 #print(lookup("2023-08-02"))

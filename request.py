@@ -38,7 +38,7 @@ def lookup(start_date):
         dbname="neo_data.db",
         user="IrinaSirbu2002",
         password="Irinuca-234",
-        host="124.0.9.1",
+        host="thawing-sands-07058-b7e6173d598d.herokuapp.com",
         port="5432"
     )
     cursor = conn.cursor()
