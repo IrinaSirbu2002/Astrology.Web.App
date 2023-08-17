@@ -1,5 +1,5 @@
 import requests
-import sqlite3
+import psycopg2
 from datetime import datetime, timedelta
 
 def add_days(start_date_str):
@@ -34,7 +34,13 @@ def lookup(start_date):
     data = response.json()
 
     # Connect to the SQLite database
-    conn = sqlite3.connect('neo_data.db')
+    conn = psycopg2.connect(
+        dbname="neo_data.db",
+        user="IrinaSirbu2002",
+        password="Irinuca-234",
+        host="124.0.9.1",
+        port="5432"
+    )
     cursor = conn.cursor()
 
     # Create a table if it doesn't exist
