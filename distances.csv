@@ -1,0 +1,37 @@
+plase1,place2,dist
+Earth,The Sun,150.000.000
+Earth,Mercury,77.000.000
+Earth,Venus,261.000.000
+Earth,Mars,54.600.000
+Earth,Jupiter,778.000.000
+Earth,Saturn,1.427.000.000
+Earth,Uranus,2.723.950.000
+Earth,Neptune,4.351.400.000
+The Sun,Mercury,69.144.000
+The Sun,Venus,108.921.000
+The Sun,Mars,244.844.000
+The Sun,Jupiter,742.531.000
+The Sun,Saturn,1.462.468.000
+The Sun,Uranus,2.937.374.000
+The Sun,Neptune,4.474.049.000
+Mercury,Venus,50.290.000
+Mercury,Mars,170.030.000
+Mercury,Jupiter,720.420.000
+Mercury,Saturn,1.366.690.000
+Mercury,Uranus,2.815.640.000
+Mercury,Neptune,4.443.090.000
+Venus,Mars,119.740.000
+Venus,Jupiter670.130.000
+Venus,Saturn,1.316.400.000
+Venus,Uranus,2.765.350.000
+Venus,Neptune,4.392.800.000
+Mars,Jupiter,550.390.000
+Mars,Saturn,1.196.660.000
+Mars,Uranus,2.645.610.000
+Mars,Neptune,4.273.060.000
+Jupiter,Saturn,646.270.000
+Jupiter,Uranus,2.095.220.000
+Jupiter,Neptune,3.722.670.000
+Saturn,Uranus,1.448.950.000
+Saturn,Neptune,3.076.400.000
+Uranus,Neptune,1.627.450.000

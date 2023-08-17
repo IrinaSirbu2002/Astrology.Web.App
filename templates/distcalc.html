@@ -1,0 +1,29 @@
+{% block title %}
+    Distance Calculator
+{% endblock %}
+
+{% block main %}
+    <div>Calculate the distance from </div>
+    <form action="/distcalc" method="post" class="p-2 mb-2 bg-dark border-bottom border-dark">
+        <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px;">
+            <select name="place1">
+                <option disabled selected>This planet</option>
+                {% for distance in distances %}
+                <option value="{{ distance.place1 }}">{{ distance.place1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+    <div> to </div>
+    <form action="/distcalc" method="post" class="p-2 mb-2 bg-dark border-bottom border-dark">
+        <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px;">
+            <select name="place2">
+                <option disabled selected>This planet</option>
+                {% for distance in distances %}
+                <option calue="{{ distance.place2 }}">{{ distance.place2 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+{% endblock %}
