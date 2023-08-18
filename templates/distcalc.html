@@ -10,7 +10,7 @@
         <form action="/distcalc" method="post">
             <div class="mb-3">
                 <select name="place1" id="place1">
-                    <option disabled selected>This Planet</option>
+                    <option disabled selected id="op">This Planet</option>
                     {% for place1 in places %}
                         <option value="{{ place1 }}">{{ place1 }}</option>
                     {% endfor %}
@@ -19,13 +19,13 @@
         <h3> to </h3>
             <div class="mb-3">
                 <select name="place2" id="place2">
-                    <option disabled selected>This Planet</option>
+                    <option disabled selected id="op">This Planet</option>
                     {% for place2 in places %}
                         <option value="{{ place2 }}">{{ place2 }}</option>
                     {% endfor %}
                 </select>
             </div>
-            <button class="btn btn-primary" type="submit">Find Out</button>
+            <button class="btn btn-secondary" type="submit">Find Out</button>
         </form>
     </p1>
 {% endblock %}

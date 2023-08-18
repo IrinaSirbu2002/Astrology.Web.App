@@ -15,3 +15,7 @@
  .p1 {
      font-family: Garamond, serif;
   }
+
+  .op{
+    background-color: $gray-400;
+  }
