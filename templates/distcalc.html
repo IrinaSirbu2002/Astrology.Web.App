@@ -5,27 +5,28 @@
 {% endblock %}
 
 {% block main %}
-    <div>Calculate the distance from </div>
-    <form action="/distcalc" method="post" class="p-2 mb-2 bg-dark border-bottom border-dark">
-        <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px;">
-            <select name="place1">
-                <option disabled selected>This planet</option>
-                {% for distance in distances %}
-                <option value="{{ distance.place1 }}">{{ distance.place1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </form>
-    <div> to </div>
-    <form action="/distcalc" method="post" class="p-2 mb-2 bg-dark border-bottom border-dark">
-        <div class="dropdown-menu dropdown-menu-dark border-0 pt-0 mx-0 rounded-3 shadow overflow-hidden" style="width: 280px;">
-            <select name="place2">
-                <option disabled selected>This planet</option>
-                {% for distance in distances %}
-                <option value="{{ distance.place2 }}">{{ distance.place2 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-    </form>
-
+    <p1>
+        <h3>Calculate the distance from </h3>
+        <form action="/distcalc" method="post">
+            <div class="mb-3">
+                <select name="place1" id="place1">
+                    <option disabled selected>This Planet</option>
+                    {% for place1 in places %}
+                        <option value="{{ place1 }}">{{ place1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        <h3> to </h3>
+            <div class="mb-3">
+                <select name="place2" id="place2">
+                    <option disabled selected>This Planet</option>
+                    {% for place2 in places %}
+                        <option value="{{ place2 }}">{{ place2 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Find Out</button>
+        </form>
+    </p1>
 {% endblock %}
+

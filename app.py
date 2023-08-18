@@ -16,13 +16,13 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-@app.after_request
-def after_request(response):
-    """Ensure responses aren't cached"""
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
-    return response
+# @app.after_request
+# def after_request(response):
+#     """Ensure responses aren't cached"""
+#     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+#     response.headers["Expires"] = 0
+#     response.headers["Pragma"] = "no-cache"
+#     return response
 
 @app.route("/")
 def index():
@@ -30,17 +30,26 @@ def index():
 
 @app.route("/distcalc", methods=["GET", "POST"])
 def distcalc():
+    distances = []
+    places = []
     with open("distances.csv", "r") as file:
         reader = csv.DictReader(file)
+        for row in reader:
+            distances.append(row)
         if request.method == "POST":
             dist1 = request.form.get("place1")
             dist2 = request.form.get("place2")
-            for row in reader:
-                if (dist1 == row["place1"] or dist1 == row["place2"]) and (dist2 == row["dist1"] or dist2 == row["dist2"]):
-                    return render_template("calculated.html", distances=reader)
-                    
+            for distance in distances:
+                if (dist1 in [distance["place1"], distance["place2"]]) and (dist2 in [distance["place1"], distance["place2"]]):
+                    return render_template("calculated.html", distance=distance)
+            return "No matching distance found"
+
         else:
-            return render_template("distcalc.html", distances=reader)
+            for distance in distances:
+                if distance["place1"] not in places:
+                    places.append(distance["place1"])
+            return render_template("distcalc.html", places=places)
+
 
 @app.route("/neo")
 def neo():

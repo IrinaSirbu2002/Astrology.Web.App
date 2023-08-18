@@ -1,4 +1,4 @@
-plase1,place2,dist
+place1,place2,dist
 Earth,The Sun,150.000.000
 Earth,Mercury,77.000.000
 Earth,Venus,261.000.000
@@ -21,7 +21,7 @@ Mercury,Saturn,1.366.690.000
 Mercury,Uranus,2.815.640.000
 Mercury,Neptune,4.443.090.000
 Venus,Mars,119.740.000
-Venus,Jupiter670.130.000
+Venus,Jupiter,670.130.000
 Venus,Saturn,1.316.400.000
 Venus,Uranus,2.765.350.000
 Venus,Neptune,4.392.800.000
