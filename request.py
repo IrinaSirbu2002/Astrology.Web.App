@@ -113,26 +113,5 @@ def api_apod():
     conn = psycopg2.connect(**db_connection_params)
     cursor = conn.cursor()
 
-    create_table_query = '''
-    CREATE TABLE IF NOT EXISTS apod_data (
-        id INTEGER PRIMARY KEY,
-        title TEXT,
-        image_url TEXT,
-        explanation TEXT
-    );
-    '''
-    cursor.execute(create_table_query)
-    conn.commit()
-
-    insert_query = '''
-                INSERT INTO apod_data (title, image_url, description)
-                VALUES (%s, %s, %s);
-            '''
-    cursor.execute(insert_query, (apod_data["title"], apod_data["image_url"], apod_data["description"]))
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
     return apod_data
 
