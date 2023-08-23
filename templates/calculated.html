@@ -5,7 +5,13 @@
 {% endblock %}
 
 {% block main %}
-    <p1>
-        <h3>The distance between {{ distance.place1 }} and {{ distance.place2 }} is {{ distance.dist }} km</h3>
-    </p1>
+    <div class="bg-secondary p-5 rounded">
+        <div class="container-fluid">
+            <div class="col-sm-8 mx-auto">
+                <p1>
+                    <h3>The distance between {{ distance.place1 }} and {{ distance.place2 }} is {{ distance.dist }} km</h3>
+                </p1>
+            </div>
+        </div>
+    </div>
 {% endblock %}

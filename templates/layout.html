@@ -12,19 +12,42 @@
         <title>{% block title %}{% endblock %}</title>
 
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
         <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbars/">
         <link href="navbar.css" rel="stylesheet">
+        <link href="navbar-top-fixed.css" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link href="blog.css" rel="stylesheet">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
+        <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/features/">
+        <link href="features.css" rel="stylesheet">
+
+        <style>
+            body {
+              background-image: url("https://wallpapercave.com/wp/wp9267721.jpg");
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: bottom;
+              background-attachment: fixed;
+            }
+            main {
+                margin-top: 60px; 
+            }
+        </style>
+
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">Closer to astrology</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             
-                <div class="collapse navbar-collapse" id="navbar">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                         <li class="nav-item">
                             <a class="nav-link " href="/neo">NEO</a>
@@ -43,12 +66,8 @@
                 </div>
             </div>
         </nav>
-        <main>
-            <div class="bg-light p-5 rounded">
-                <div class="col-sm-8 mx-auto">
-                    {% block main %}{% endblock %}
-                </div>
-            </div>
+        <main class="container">
+            <div>{% block main %}{% endblock %}</div>
         </main>
     </body>
 </html>

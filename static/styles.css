@@ -16,3 +16,36 @@
      font-family: Garamond, serif;
   }
 
+.tit {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.tabs_grid_container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+  margin-top: 20px;
+}
+
+.tabs_grid_img {
+  flex: 0 0 300px;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding-bottom:20px;
+
+  @media (max-width: 768px){
+    padding-bottom: 20px;
+  }
+}
+
+/* Adjust as needed */
+.tabs_grid_desc {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .tabs_grid_container {
+      flex-direction: column;   
+      align-items: flex-start;  
+  }
+}  

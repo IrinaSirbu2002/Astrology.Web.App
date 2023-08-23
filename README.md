@@ -12,7 +12,7 @@
     - Python files:
       - app.py
       - request.py
-    - templates:
+    - Templates:
       - layout.html
       - index.html
       - distcalc.html

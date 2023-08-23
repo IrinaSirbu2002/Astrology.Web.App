@@ -36,18 +36,18 @@ def distcalc():
         reader = csv.DictReader(file)
         for row in reader:
             distances.append(row)
+        for distance in distances:
+                if distance["place1"] not in places:
+                    places.append(distance["place1"])
         if request.method == "POST":
             dist1 = request.form.get("place1")
             dist2 = request.form.get("place2")
             for distance in distances:
                 if (dist1 in [distance["place1"], distance["place2"]]) and (dist2 in [distance["place1"], distance["place2"]]):
                     return render_template("calculated.html", distance=distance)
-            return "No matching distance found"
+            return render_template("distcalc.html", places=places)
 
         else:
-            for distance in distances:
-                if distance["place1"] not in places:
-                    places.append(distance["place1"])
             return render_template("distcalc.html", places=places)
 
 
