@@ -46,6 +46,7 @@
       - APOD (Astronomy Picture of the Day)
       - a link to NASA Image and Video Library
     There is also a block named _main_ which is specific to every page.
+    The background setted is an image of a sky with stars appropriate for the theme.
 
 **distcalc.html**
     This file contains a form with two select-option dropdowns and a submit button. The first _select_ has the name _place1_ and its options are added via a loop of items from a list using Jinja syntax. The second _select_ has the name _place2_ and has the same options as the first one. This template is used when the user clicks on the _distance Calculator_ option from the navbar via _GET_.
@@ -54,3 +55,6 @@
     This file has the same title, but gives the user the result of their searched distance via _POST_. Also using Jinja syntax, the placeholders between {{}} are the values of a dictionary.
 
 **index.html**
+    This is the home page of the application. The section that containes the title of the page is from bootstrap examples, choosing the one on bold and italic in order to stand out from the rest of the content. Next, I used the html of a container, also from bootstrap examples on features(including the specific library in layout.html) to present some information about each planet that I took from a NASA site. The images of the planets are extracted from the internet from various sites. I used the tabs_grid container, tabs_grid_img and tabs_grid_desc classes to organize the information better and to adjust the layout depending on the screen's measurements.
+
+    

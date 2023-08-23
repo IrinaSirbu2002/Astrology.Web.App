@@ -28,13 +28,13 @@
 }
 
 .tabs_grid_img {
-  flex: 0 0 300px;
+  flex: 0 0 50px;
   margin-right: 20px;
   margin-top: 20px;
   padding-bottom:20px;
 
   @media (max-width: 768px){
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
 }
 

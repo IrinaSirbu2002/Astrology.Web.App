@@ -1,4 +1,4 @@
-#from request import lookup, add_days
+from request import add_days, api_apod
 import os
 
 from flask import Flask, flash, redirect, render_template, request
@@ -57,7 +57,11 @@ def neo():
 
 @app.route("/apod")
 def apod():
-    return render_template("index.html")
+    apod_info = api_apod()
+    title = apod_info.get("title")
+    image_url = apod_info.get("image_url")
+    explanation = apod_info.get("explanation")
+    return render_template("apod.html", title=title, image_url=image_url, explanation=explanation)
 
 @app.route("/images")
 def images():
