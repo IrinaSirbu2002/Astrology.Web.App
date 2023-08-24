@@ -102,16 +102,16 @@ def api_apod():
     apod_data["image_url"] = apod_json.get("url", "")
     apod_data["explanation"] = apod_json.get("explanation", "")
 
-    db_connection_params = {
-        "database": "d6j7udjm0knm02",
-        "user": "cektmoriksqbjh",
-        "password": "8309c045eed0ed964e64e47f8411cc3784ecedcaf96a6041b72cd4a0fe435ce9",
-        "host": "ec2-35-169-9-79.compute-1.amazonaws.com",
-        "port": "5432"
-    }
+    # db_connection_params = {
+    #     "database": "dd279020idu3mk",
+    #     "user": "yobeiqowuwsepo",
+    #     "password": "b06ac608b8c2718460d93ce8fa1d3078933f44005602c0c6af747209b1060c30",
+    #     "host": "ec2-44-199-147-86.compute-1.amazonaws.com",
+    #     "port": "5432"
+    # }
 
-    conn = psycopg2.connect(**db_connection_params)
-    cursor = conn.cursor()
+    # conn = psycopg2.connect(**db_connection_params)
+    # cursor = conn.cursor()
 
     return apod_data
 
