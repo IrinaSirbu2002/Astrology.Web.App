@@ -1,7 +1,7 @@
 from request import add_days, api_apod
 import os
 
-from flask import Flask, flash, redirect, render_template, request
+from flask import Flask, flash, redirect, render_template, request, send_from_directory
 from flask_session import Session
 #from tempfile import mkdtemp
 import csv
@@ -23,6 +23,10 @@ Session(app)
 #     response.headers["Expires"] = 0
 #     response.headers["Pragma"] = "no-cache"
 #     return response
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def index():
