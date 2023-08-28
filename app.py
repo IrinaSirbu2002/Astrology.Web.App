@@ -1,6 +1,6 @@
 from request import add_days, api_apod, lookup
 from datetime import datetime
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, render_template, request
 import csv
 
 # Configure application
