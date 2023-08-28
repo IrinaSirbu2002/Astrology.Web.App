@@ -38,14 +38,14 @@ def distcalc():
         else:
             return render_template("distcalc.html", places=places)
 
-neo_data = lookup("2015-09-08")
-print(neo_data)
-
 @app.route("/neo")
 def neo():
-    date = request.gotm.get()
-    neo_data = lookup(date)
-    return render_template("index.html")
+    if request.method == "POST":
+        date = request.form.get()
+        neo_data = lookup(date)
+        return render_template("neo.html")
+    else:
+        return render_template("neo.html")
 
 @app.route("/apod")
 def apod():

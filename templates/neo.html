@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    NEO
+{% endblock %}
+
+
+{% block main %}
+    <header class="site-header" aria-label="Site">
+        <div class="inside-header grid-container grid-parent">
+            <div class="site-branding-container">
+                <div class="site-branding">
+                    <p class="main-title" itemprop="headline">
+                        <h1 class="text-white fst-italic fw-bold tit text-center">Near Earth Objects (Asteroids)</h1>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-dark p-5 text-white rounded">
+        <div class="container-fluid">
+            <div class="col-sm-8 mx-auto">
+                <p1>
+                    <h3> Search for Asteroids based on their closest approach date to Earth </h3>
+                    <p></p>
+                    <h3> Insert the date here:</h3>
+                    <form action="/neo" method="post">
+                        <div class="mb-3">
+                            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="date" name="date" placeholder="YYYY-MM-DD" type="text">
+                        </div>
+                        <button class="btn btn-dark" type="submit" id="find">Find Out</button>
+                        {% if request.method == 'POST' %}
+                            <p class="warning"><span class="warning-message">You must pick a date!</span></p>
+                        {% else %}
+                            <p></p>
+                        {% endif %}
+                    </form>
+                </p1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

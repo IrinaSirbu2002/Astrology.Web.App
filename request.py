@@ -76,7 +76,7 @@ def lookup(start_date):
 
     #return the dictionary
     return_query = '''
-    SELECT * FROM neo_data WHERE date LIKE %s
+    SELECT * FROM neo_data WHERE date date::date = %s
     '''
 
     cursor.execute(return_query, (start_date,))
