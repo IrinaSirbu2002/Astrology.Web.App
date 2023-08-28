@@ -1,16 +1,10 @@
 from request import add_days, api_apod, lookup
-import os
-
-from flask import Flask, flash, redirect, render_template, request, send_from_directory
-from flask_session import Session
+from datetime import datetime
+from flask import Flask, render_template, request, send_from_directory
 import csv
 
 # Configure application
 app = Flask(__name__)
-
-# @app.route('/favicon.ico')
-# def favicon():
-#     return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def index():
@@ -38,14 +32,35 @@ def distcalc():
         else:
             return render_template("distcalc.html", places=places)
 
-@app.route("/neo")
+
+@app.route("/neo", methods=["GET", "POST"])
 def neo():
+    neo_data_dict = []
     if request.method == "POST":
-        date = request.form.get()
-        neo_data = lookup(date)
-        return render_template("neo.html")
+        try:
+            date = request.form.get("date")
+            frmdate = datetime.strptime(date, '%Y-%m-%d')
+            if date == '':
+                return render_template("neo.html", x=2)
+        except ValueError:
+            return render_template("neo.html", x=1)
+        
+        formdate = frmdate.strftime("%Y-%m-%d")
+        neo_data = lookup(formdate)
+        # converting each row to a dictionary
+        for row in neo_data:
+            data = {
+                "name": row[1],
+                "size": row[2],
+                "date": row[3],
+                "miss_distance": row[4]
+            }
+            neo_data_dict.append(data)
+
+        return render_template("neocalc.html", asteroids=neo_data_dict, date=formdate)
+        
     else:
-        return render_template("neo.html")
+        return render_template("neo.html", x=0)
 
 @app.route("/apod")
 def apod():

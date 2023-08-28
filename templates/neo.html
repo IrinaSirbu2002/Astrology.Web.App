@@ -24,16 +24,18 @@
                 <p1>
                     <h3> Search for Asteroids based on their closest approach date to Earth </h3>
                     <p></p>
-                    <h3> Insert the date here:</h3>
+                    <h5> Insert the date here:</h5>
                     <form action="/neo" method="post">
                         <div class="mb-3">
                             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="date" name="date" placeholder="YYYY-MM-DD" type="text">
                         </div>
-                        <button class="btn btn-dark" type="submit" id="find">Find Out</button>
-                        {% if request.method == 'POST' %}
-                            <p class="warning"><span class="warning-message">You must pick a date!</span></p>
+                        <button class="btn btn-dark" type="submit">Find Out</button>
+                        {% if x == 2 %}
+                            <p class="warning"><span class="warning-message" style="color:Tomato;">You must pick a date!</span></p>
                         {% else %}
-                            <p></p>
+                            {% if x == 1 %}
+                            <p class="warning"><span class="warning-message" style="color:Tomato;">Please use the suggested format!</span></p>
+                            {% endif %}
                         {% endif %}
                     </form>
                 </p1>

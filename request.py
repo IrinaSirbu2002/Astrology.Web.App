@@ -57,6 +57,15 @@ def lookup(start_date):
     '''
     cursor.execute(create_table_query)
     conn.commit()
+
+    # select_query = '''
+    # SELECT date FROM neo_data
+    # '''
+    # cursor.execute(select_query)
+    # conn.commit()
+
+    # if start_date or end_date in 
+
     # Insert data into the table
     for date, neo_list in data['near_earth_objects'].items():
         for neo in neo_list:
@@ -70,15 +79,16 @@ def lookup(start_date):
             insert_query = '''
             INSERT INTO neo_data (id, name, size, date, miss_distance)
             VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (id) DO NOTHING
             '''
             cursor.execute(insert_query, (id, name, size, date, miss_distance))
             conn.commit()
 
     #return the dictionary
     return_query = '''
-    SELECT * FROM neo_data WHERE date date::date = %s
+    SELECT * FROM neo_data WHERE "date"::date::text LIKE %s
     '''
-
+    # list of tuples
     cursor.execute(return_query, (start_date,))
     result = cursor.fetchall()
 
@@ -100,17 +110,6 @@ def api_apod():
     apod_data["title"] = apod_json.get("title", "")
     apod_data["image_url"] = apod_json.get("url", "")
     apod_data["explanation"] = apod_json.get("explanation", "")
-
-    # db_connection_params = {
-    #     "database": "dd279020idu3mk",
-    #     "user": "yobeiqowuwsepo",
-    #     "password": "b06ac608b8c2718460d93ce8fa1d3078933f44005602c0c6af747209b1060c30",
-    #     "host": "ec2-44-199-147-86.compute-1.amazonaws.com",
-    #     "port": "5432"
-    # }
-
-    # conn = psycopg2.connect(**db_connection_params)
-    # cursor = conn.cursor()
 
     return apod_data
 

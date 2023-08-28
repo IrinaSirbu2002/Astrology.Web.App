@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    NEO
+{% endblock %}
+
+{% block main %}
+    <header class="site-header" aria-label="Site">
+        <div class="inside-header grid-container grid-parent">
+            <div class="site-branding-container">
+                <div class="site-branding">
+                    <p class="main-title" itemprop="headline">
+                        <h1 class="text-white fst-italic fw-bold tit text-center">Asteroids on {{ date }}</h1>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bg-dark text-white p-5 rounded">
+        <div class="container-fluid">
+            <div class="col-sm-8 mx-auto">
+                <table style="width:100%">
+                    <tr>
+                        <th>Name of Asteroid</th>
+                        <th>Size in Km</th>
+                        <th>Full approach date</th>
+                        <th>Miss distance to Earth in Km</th>
+                    </tr>
+                    {% for asteroid in asteroids %}
+                    <tr>
+                        <td>{{ asteroid.name }}</td>
+                        <td>{{ asteroid.size }}</td>
+                        <td>{{ asteroid.date }}</td>
+                        <td>{{ asteroid.miss_distance }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
