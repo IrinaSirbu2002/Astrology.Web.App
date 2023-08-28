@@ -1,32 +1,16 @@
-from request import add_days, api_apod
+from request import add_days, api_apod, lookup
 import os
 
 from flask import Flask, flash, redirect, render_template, request, send_from_directory
 from flask_session import Session
-#from tempfile import mkdtemp
 import csv
-
-#print(lookup("2023-08-02"))
 
 # Configure application
 app = Flask(__name__)
 
-# Configure session to use filesystem (instead of signed cookies)
-# app.config["SESSION_PERMANENT"] = False
-# app.config["SESSION_TYPE"] = "filesystem"
-# Session(app)
-
-# @app.after_request
-# def after_request(response):
-#     """Ensure responses aren't cached"""
-#     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-#     response.headers["Expires"] = 0
-#     response.headers["Pragma"] = "no-cache"
-#     return response
-
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+# @app.route('/favicon.ico')
+# def favicon():
+#     return send_from_directory(app.static_folder, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/")
 def index():
@@ -54,9 +38,13 @@ def distcalc():
         else:
             return render_template("distcalc.html", places=places)
 
+neo_data = lookup("2015-09-08")
+print(neo_data)
 
 @app.route("/neo")
 def neo():
+    date = request.gotm.get()
+    neo_data = lookup(date)
     return render_template("index.html")
 
 @app.route("/apod")
@@ -66,7 +54,3 @@ def apod():
     image_url = apod_info.get("image_url")
     explanation = apod_info.get("explanation")
     return render_template("apod.html", title=title, image_url=image_url, explanation=explanation)
-
-@app.route("/images")
-def images():
-    return render_template("index.html")
