@@ -58,14 +58,6 @@ def lookup(start_date):
     cursor.execute(create_table_query)
     conn.commit()
 
-    # select_query = '''
-    # SELECT date FROM neo_data
-    # '''
-    # cursor.execute(select_query)
-    # conn.commit()
-
-    # if start_date or end_date in 
-
     # Insert data into the table
     for date, neo_list in data['near_earth_objects'].items():
         for neo in neo_list:
