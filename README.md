@@ -1,5 +1,6 @@
 # Closer to Astrology Web Application
 #### Video Demo: <https://youtu.be/LNf_qjvz9Vs>
+#### App Link: <https://thawing-sands-07058-b7e6173d598d.herokuapp.com/apod>
 #### Description:
 
 **The Flask Application**
